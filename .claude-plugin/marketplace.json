@@ -1,6 +1,6 @@
 {
     "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-    "name": "team-skills",
+    "name": "ovidiu-skills",
     "description": "Claude Code skills that work across projects and stacks.",
     "owner": {
         "name": "Ovidiu Stanc"

@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Claude Code skills shared as a plugin marketplace (`team-skills`), private on GitHub.
+Claude Code skills shared as a plugin marketplace (`ovidiu-skills`), private on GitHub.
 Everything in this repo is written in English. The guidance (SKILL.md, references,
 READMEs, this file, examples) names no person and no company; the owner's name belongs
 only in author fields (`plugin.json`, `marketplace.json`) and commit authorship.
@@ -18,7 +18,7 @@ useful elsewhere, propose moving it here; don't move it without asking.
 ## Layout
 
 ```
-.claude-plugin/marketplace.json     marketplace "team-skills": lists every plugin
+.claude-plugin/marketplace.json     marketplace "ovidiu-skills": lists every plugin
 plugins/<plugin>/
   .claude-plugin/plugin.json        name, version, description
   README.md                         for humans browsing GitHub
@@ -62,7 +62,7 @@ Chrome may need to run outside the Bash sandbox (it exits 21 silently inside it)
 1. Tests green, both validations pass.
 2. Bump `version` in the plugin's `plugin.json` (semver: a new step or option = minor, a
    fix = patch). Installs only update when the version changes.
-3. Commit and push to `main`. Users run `/plugin marketplace update team-skills` (or wait
+3. Commit and push to `main`. Users run `/plugin marketplace update ovidiu-skills` (or wait
    for the background update).
 4. To try a change before pushing: `/plugin marketplace add <path to this folder>` in a
    test session, or run the tools directly from this folder against a project.

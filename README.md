@@ -28,11 +28,11 @@ This repo is private: you need read access to it on GitHub first. Then, in Claud
 
 ```text
 /plugin marketplace add <this repo's URL>
-/plugin install showcase@team-skills
+/plugin install showcase@ovidiu-skills
 ```
 
 Copy the URL from the green **Code** button above. That's it: the skill is now available in
-every project you open. Updates arrive with `/plugin marketplace update team-skills`.
+every project you open. Updates arrive with `/plugin marketplace update ovidiu-skills`.
 
 > You can also just give Claude the repo URL and say *"install the showcase plugin from
 > this marketplace"*. It runs the same two commands.
