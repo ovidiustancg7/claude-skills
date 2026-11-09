@@ -1,0 +1,7 @@
+{
+    "name": "Fixture",
+    "baseUrl": "http://127.0.0.1:8765",
+    "cdpPort": 9450,
+    "app": [{ "name": "fixture", "url": "http://127.0.0.1:8765/login", "cmd": ["node", "server.mjs"] }],
+    "kits": { "demo": { "default": true, "dir": ".showcase/.work/demo" } }
+}

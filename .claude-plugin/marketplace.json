@@ -1,0 +1,16 @@
+{
+    "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+    "name": "team-skills",
+    "description": "Claude Code skills that work across projects and stacks.",
+    "owner": {
+        "name": "Skills maintainers"
+    },
+    "plugins": [
+        {
+            "name": "showcase",
+            "description": "Real screenshots of any web app with believable demo data, delivered as raw screens, email cards or 16:9 slides.",
+            "source": "./plugins/showcase",
+            "category": "productivity"
+        }
+    ]
+}

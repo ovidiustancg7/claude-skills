@@ -1,0 +1,16 @@
+{
+    "name": "showcase",
+    "version": "1.1.1",
+    "description": "Make pictures of a web app for people who don't use it: real screenshots of the running app filled with believable demo data, composed into email cards or 16:9 slides. Any stack. Node 22+ and Chrome, no dependencies.",
+    "author": {
+        "name": "Skills maintainers"
+    },
+    "keywords": [
+        "screenshots",
+        "slides",
+        "presentation",
+        "demo-data",
+        "marketing",
+        "chrome"
+    ]
+}
