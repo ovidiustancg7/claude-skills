@@ -1,9 +1,9 @@
 # CLAUDE.md
 
 Claude Code skills shared as a plugin marketplace (`team-skills`), private on GitHub.
-Everything in this repo is written in English, and it stays anonymous: no personal or
-company names anywhere (files, examples, commit authors). The repo-local git identity is
-already neutral; don't override it.
+Everything in this repo is written in English. The guidance (SKILL.md, references,
+READMEs, this file, examples) names no person and no company; the owner's name belongs
+only in author fields (`plugin.json`, `marketplace.json`) and commit authorship.
 
 ## What lives here
 

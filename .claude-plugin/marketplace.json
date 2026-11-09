@@ -3,7 +3,7 @@
     "name": "team-skills",
     "description": "Claude Code skills that work across projects and stacks.",
     "owner": {
-        "name": "Skills maintainers"
+        "name": "Ovidiu Stanc"
     },
     "plugins": [
         {

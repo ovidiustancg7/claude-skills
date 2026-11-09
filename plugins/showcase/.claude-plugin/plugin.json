@@ -1,9 +1,9 @@
 {
     "name": "showcase",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "Make pictures of a web app for people who don't use it: real screenshots of the running app filled with believable demo data, composed into email cards or 16:9 slides. Any stack. Node 22+ and Chrome, no dependencies.",
     "author": {
-        "name": "Skills maintainers"
+        "name": "Ovidiu Stanc"
     },
     "keywords": [
         "screenshots",
