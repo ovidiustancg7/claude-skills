@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Claude Code skills shared as a plugin marketplace (`ovidiu-skills`), private on GitHub.
+Claude Code skills shared as a plugin marketplace (`ovidiu-skills`), public on GitHub under MIT.
 Everything in this repo is written in English. The guidance (SKILL.md, references,
 READMEs, this file, examples) names no person and no company; the owner's name belongs
 only in author fields (`plugin.json`, `marketplace.json`) and commit authorship.
@@ -13,7 +13,7 @@ useful elsewhere, propose moving it here; don't move it without asking.
 
 | plugin | what | state |
 |---|---|---|
-| `showcase` | real screenshots of any web app with demo data, as raw screens, email cards or 16:9 slides | v1.1, proven on a Laravel + Vue SPA and a server-rendered PHP app |
+| `showcase` | real screenshots of any web app with demo data, as raw screens, email cards or 16:9 slides | v1.1.2, proven on a Laravel + Vue SPA and a server-rendered PHP app |
 
 ## Layout
 

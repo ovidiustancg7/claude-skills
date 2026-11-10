@@ -23,8 +23,7 @@ Install once, then just ask Claude in plain words.
 
 ## Install
 
-This repo is private: you need read access to it on GitHub first. Then, in Claude Code
-(terminal or desktop):
+In Claude Code (terminal or desktop):
 
 ```text
 /plugin marketplace add <this repo's URL>
@@ -99,3 +98,7 @@ tests/unit/  tests/e2e/             node:test suites
 Bump a plugin's `version` in its `plugin.json` when you change it, so installs pick it up.
 
 </details>
+
+## License
+
+[MIT](LICENSE)
