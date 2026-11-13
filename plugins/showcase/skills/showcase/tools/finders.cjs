@@ -19,6 +19,9 @@ const label = `(b.innerText || b.value || '').trim().toLowerCase()`;
 const button = (l) => `${BUTTONS}.find(b => ${label} === ${j(l.toLowerCase())})`;
 const buttonHas = (l) => `${BUTTONS}.find(b => ${label}.includes(${j(l.toLowerCase())}))`;
 
+// The first element matching a CSS selector (for a take's tap/type/scroll/zoom).
+const q = (selector) => `document.querySelector(${j(selector)})`;
+
 // Clicks that fail loudly: an eval that throws stops the run and names the step.
 const click = (expr, what) =>
     `(() => { const e = ${expr}; if (!e) throw new Error(${j(`not found: ${what}`)}); e.click(); return ${j(what)}; })()`;
@@ -49,4 +52,4 @@ const submit = (selector) =>
 const hide = (selector) =>
     `(() => { const n = document.querySelectorAll(${j(selector)}); n.forEach(e => e.style.setProperty('display', 'none', 'important')); return n.length + ' hidden'; })()`;
 
-module.exports = { text, textHas, button, buttonHas, click, clickText, clickButton, clickButtonHas, clickSelector, scrollToText, typeInto, submit, hide };
+module.exports = { q, text, textHas, button, buttonHas, click, clickText, clickButton, clickButtonHas, clickSelector, scrollToText, typeInto, submit, hide };

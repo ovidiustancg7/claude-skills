@@ -1,7 +1,7 @@
 {
     "name": "showcase",
-    "version": "1.1.2",
-    "description": "Make pictures of a web app for people who don't use it: real screenshots of the running app filled with believable demo data, composed into email cards or 16:9 slides. Any stack. Node 22+ and Chrome, no dependencies.",
+    "version": "1.2.0",
+    "description": "Make pictures and short videos of a web app for people who don't use it: real screenshots of the running app filled with believable demo data, composed into email cards or 16:9 slides, or filmed frame by frame into a clip that OpenScreen edits. Any stack. Node 22+ and Chrome, no dependencies.",
     "author": {
         "name": "Ovidiu Stanc"
     },
@@ -11,6 +11,8 @@
         "presentation",
         "demo-data",
         "marketing",
-        "chrome"
+        "chrome",
+        "video",
+        "openscreen"
     ]
 }

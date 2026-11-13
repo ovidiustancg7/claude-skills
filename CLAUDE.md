@@ -13,7 +13,7 @@ useful elsewhere, propose moving it here; don't move it without asking.
 
 | plugin | what | state |
 |---|---|---|
-| `showcase` | real screenshots of any web app with demo data, as raw screens, email cards or 16:9 slides | v1.1.2, proven on a Laravel + Vue SPA and a server-rendered PHP app |
+| `showcase` | real screenshots of any web app with demo data, as raw screens, email cards, 16:9 slides or a short video (edited in OpenScreen) | v1.2.0, stills proven on a Laravel + Vue SPA and a server-rendered PHP app |
 
 ## Layout
 
@@ -73,3 +73,6 @@ Chrome may need to run outside the Bash sandbox (it exits 21 silently inside it)
 - Cards hide scrollbars: a headless Chrome kept painting one after `fit` grew the viewport.
 - A project's own test harness (throwaway database, sends recorded) is the safest place
   for a demo kit: the server-rendered PHP app was shot that way.
+- Video frames come from a JS time warp (lib/clock.mjs), not Chrome's virtual time: under
+  `Emulation.setVirtualTimePolicy` CSS animations kept wall time and one screenshot in a few
+  hundred never returned. The headless screencast ignores device scale (frames stay CSS size).

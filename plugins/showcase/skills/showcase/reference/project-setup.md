@@ -44,6 +44,7 @@ the next free one from it and add the project there.
 | `finders` | none | the project's own finders module |
 | `app` | `[]` | servers `dev.mjs up` starts when they are not already answering |
 | `kits` | `{}` | demo kits, see below |
+| `video` | none | the video look: `{ zoom, accent, ink, wallpaper }`, see `video.md` |
 
 An `app` entry: `{ name, url | file, cmd: [exe, ...args], cwd?, env?, shell?, cleanup? }`. `url`
 (or a `file` that appears, like Vite's `public/hot`) says it is up. `cmd[0] = "node"` runs

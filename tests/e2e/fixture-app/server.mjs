@@ -14,7 +14,8 @@ const loginPage = `<!doctype html><html><head><meta charset="utf-8"><title>Sign 
 const spa = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Fixture</title>
 <style>body{font:16px system-ui;margin:0}nav{display:flex;gap:16px;padding:16px;background:#14140f;color:#fff}main{padding:24px}
 .tile{display:inline-block;padding:16px 20px;border:1px solid #ddd;border-radius:10px;margin:0 12px 12px 0}
-li{padding:8px 0;border-bottom:1px solid #eee}</style></head>
+li{padding:8px 0;border-bottom:1px solid #eee}input{font:inherit;padding:8px;margin-left:8px;width:120px}button{font:inherit;padding:10px 16px}
+#panel{transform:translateX(-110%);transition:transform 1s linear;background:#d8ff52;padding:12px}#panel.yes{transform:none}</style></head>
 <body><div id="app"></div><script>
 const app = document.getElementById('app');
 const routes = {
@@ -25,6 +26,11 @@ const routes = {
       + '<div class="tile" id="share">' + s.share + '</div><div class="tile" id="external">' + x.label + '</div>';
   },
   '/orders': async () => '<h1>Orders</h1><ul>' + Array.from({ length: 40 }, (_, i) => '<li>Order #' + (1001 + i) + '</li>').join('') + '</ul>',
+  // A form to film: a field, a choice that opens a panel with a CSS transition, a long list.
+  '/report': async () => '<h1>Store report</h1><label>Shelf length <input id="shelf" inputmode="numeric"></label>'
+    + '<p><button id="yes" onclick="panel.className = this.id">Fridge: yes</button></p>'
+    + '<div id="panel">Fridge photo needed</div><ul>' + Array.from({ length: 30 }, (_, i) => '<li>Product ' + (i + 1) + '</li>').join('') + '</ul>'
+    + '<button id="send" onclick="done.hidden = false">Send</button><p id="done" hidden>Sent</p>',
 };
 async function render() {
   const view = routes[location.pathname] ?? (async () => '<h1>Not found</h1>');

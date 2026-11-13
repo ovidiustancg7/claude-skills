@@ -96,7 +96,7 @@ const write = (rel, content) => {
 };
 write("config.json", `${JSON.stringify(config, null, 4)}\n`);
 write(".gitignore", ".work/\nout/\n");
-for (const t of ["README.md", "recipes/example.cjs", "recipes/example.cards.cjs", "demo/README.md"]) {
+for (const t of ["README.md", "recipes/example.cjs", "recipes/example.cards.cjs", "recipes/example.take.cjs", "demo/README.md"]) {
     const src = join(here, "../templates", t);
     write(t, readFileSync(src, "utf8").replaceAll("{{name}}", config.name));
 }

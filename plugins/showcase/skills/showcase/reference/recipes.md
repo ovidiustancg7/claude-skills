@@ -58,6 +58,7 @@ visible text. Each returns JS source for `eval` / `wait`:
 
 | finder | |
 |---|---|
+| `q(css)` | the first element matching a CSS selector (for a video take's `tap`, `type`, `scroll`) |
 | `text(t, inside?)` | element whose own text is exactly `t` |
 | `textHas(t, inside?)` | own text contains `t` |
 | `button(l)` / `buttonHas(l)` | button (or role=button, submit input) by label, any case |

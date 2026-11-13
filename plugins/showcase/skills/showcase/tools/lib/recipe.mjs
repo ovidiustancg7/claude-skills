@@ -66,6 +66,20 @@ export async function loadSteps(file, project, argv = process.argv) {
     return steps;
 }
 
+/** A take recipe for record.mjs: { setup: [...steps], take: [...steps] }, both checked. */
+export async function loadTake(file, project, argv = process.argv) {
+    const recipe = await loadRecipe(file, recipeContext(project, argv));
+    if (!Array.isArray(recipe.take) || !recipe.take.length) throw new Error(`${file} must return { setup, take }: take is missing or empty`);
+    const check = (steps, part) => {
+        const bad = steps.findIndex((s) => !Array.isArray(s) || typeof s[0] !== "string");
+        if (bad >= 0) throw new Error(`${part} step ${bad + 1} is not [cmd, ...args]: ${JSON.stringify(steps[bad])}`);
+    };
+    const setup = recipe.setup ?? [];
+    check(setup, "setup");
+    check(recipe.take, "take");
+    return { setup, take: recipe.take };
+}
+
 async function loadRecipe(file, ctx) {
     const abs = resolve(file);
     delete require.cache[abs];

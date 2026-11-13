@@ -1,6 +1,6 @@
 ---
 name: showcase
-description: Make pictures of a web app for people who don't use it - real screenshots of the running app filled with believable demo data, delivered as raw screens, email cards or 16:9 slides, then cleaned up. Works on any stack (Laravel, Django, Rails, Node, WordPress, plain PHP, SPAs and server-rendered apps). Use when asked for screenshots, images, pictures or slides of an app's features - for a client deck, a pitch, a team email, a newsletter, a README, a presentation - or to redo an earlier set for another feature or brand.
+description: Make pictures and short videos of a web app for people who don't use it - real screenshots of the running app filled with believable demo data, delivered as raw screens, email cards, 16:9 slides or a 20-45 s video clip (edited in OpenScreen), then cleaned up. Works on any stack (Laravel, Django, Rails, Node, WordPress, plain PHP, SPAs and server-rendered apps). Use when asked for screenshots, images, pictures, slides or a demo/how-to video of an app's features - for a client deck, a pitch, a team email, a newsletter, a README, a presentation - or to redo an earlier set for another feature or brand.
 ---
 
 # Showcase: pictures of an app, from real renders
@@ -28,7 +28,9 @@ Look for `.showcase/config.json` in the project.
 1. **Who looks at it:** a client (polished, no internals, their brand absent or faked) or
    the team (they know the app, so show what CHANGED).
 2. **Format:** raw screens (someone else builds the deck), **email cards** (720 px wide,
-   pasted in an email body) or **slides** (16:9, dropped into PowerPoint/Keynote/Slides).
+   pasted in an email body), **slides** (16:9, dropped into PowerPoint/Keynote/Slides) or
+   a **video** (a 20–45 s clip of one flow, 9:16 for a phone app or 16:9 for desktop: a
+   how-to or a demo). Video: follow `reference/video.md`.
 3. **Which features**, and how many. Email: 3, at most 4, one idea per card. Merge or drop
    rather than pile up.
 4. **Language** of the card copy follows the reader, not the conversation.
@@ -57,6 +59,8 @@ node $T/dev.mjs down                     # Chrome closed, servers it started sto
 - `shoot.mjs --list` prints a recipe's sections. `node $T/dev.mjs status` shows what runs.
 - Writing recipes (the steps, the finders, mocks, signing in): `reference/recipes.md`.
 - Cards and slides (crop, layouts, the look, composition rules): `reference/compose.md`.
+- Video: `node $T/record.mjs .showcase/recipes/<name>.take.cjs` films a take in a tab of its
+  own, then OpenScreen frames, zooms, captions and exports it: `reference/video.md`.
 
 ## 3. Look at every picture, like the reader will
 

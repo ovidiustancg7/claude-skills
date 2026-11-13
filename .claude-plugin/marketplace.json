@@ -8,7 +8,7 @@
     "plugins": [
         {
             "name": "showcase",
-            "description": "Real screenshots of any web app with believable demo data, delivered as raw screens, email cards or 16:9 slides.",
+            "description": "Real screenshots of any web app with believable demo data, delivered as raw screens, email cards, 16:9 slides or a short video clip.",
             "source": "./plugins/showcase",
             "category": "productivity"
         }

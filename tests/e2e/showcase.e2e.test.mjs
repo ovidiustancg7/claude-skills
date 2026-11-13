@@ -1,10 +1,11 @@
 // End to end against the fixture app: dev up → shoot (mock, rewrite, cookie, nav, wait,
-// full page, phone) → login through a form → compose (email and slide) → dev down.
+// full page, phone) → login through a form → record a video take → compose (email and
+// slide) → dev down.
 // Needs Chrome (or Edge) and the ports 8765 (fixture) and 9450 (CDP) free.
 import { after, before, test } from "node:test";
 import assert from "node:assert/strict";
 import { execFileSync, spawnSync } from "node:child_process";
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -99,6 +100,41 @@ test("a failing step stops the run and names it", () => {
 test("a server-rendered login form signs in", () => {
     const out = tool("shoot.mjs", [".showcase/recipes/login.cjs"]);
     assert.match(out, /"\/"/);
+});
+
+test("record films a take: a 1170×2532 WebM, the pointer sidecar, the plan, CSS on the frame clock", async () => {
+    const { readElements, ID } = await import(pathToFileURL(join(TOOLS, "lib/webm.mjs")).href);
+    const out = tool("record.mjs", [".showcase/recipes/report.take.cjs", "--out", `${OUT}/video`]);
+    // The panel's 1 s linear slide starts at -376 px: 26 frames (867 ms) later it is at ~-50.
+    const at = Number(out.match(/panel at (-?\d+)/)[1]);
+    assert.ok(Math.abs(at + 50) <= 10, `CSS transition off the frame clock: panel at ${at}, expected about -50`);
+    assert.match(out, /saved .*report\.webm \(1170×2532, vp/);
+
+    const file = join(ROOT, OUT, "video/report.webm");
+    const buf = readFileSync(file);
+    const [ebml, segment] = readElements(buf);
+    assert.equal(ebml.id, ID.EBML);
+    assert.equal(segment.dataStart + segment.size, buf.length);
+
+    const plan = JSON.parse(readFileSync(join(ROOT, OUT, "video/report.plan.json"), "utf8"));
+    assert.deepEqual([plan.width, plan.height, plan.fps], [1170, 2532, 30]);
+    assert.ok(plan.duration > 10 && plan.duration < 15, `duration ${plan.duration}`);
+    assert.deepEqual(plan.captions.map((c) => c.style), ["intro", "beat", "beat", "outro"]);
+    assert.equal(plan.captions[1].start, 2.5, "the intro holds 2.5 s");
+    assert.equal(plan.zooms.length, 1);
+    assert.deepEqual(plan.taps.map((t) => t.label), ["type", "fridge yes", "send"]);
+    // The zoom is centred on the field that was typed into.
+    assert.deepEqual(plan.zooms[0].focus, { cx: plan.taps[0].cx, cy: plan.taps[0].cy });
+
+    const cursor = JSON.parse(readFileSync(`${file}.cursor.json`, "utf8"));
+    assert.equal(cursor.version, 2);
+    assert.equal(cursor.samples.length, Math.round(plan.duration * 30));
+    assert.equal(cursor.samples.filter((s) => s.interactionType === "click").length, 3);
+    assert.equal(cursor.samples[0].visible, false, "no pointer before the first tap");
+
+    assert.equal(existsSync(join(ROOT, ".showcase/.work/video/report")), false, "frames are cleaned up");
+    const pages = (await (await fetch("http://localhost:9450/json")).json()).filter((t) => t.type === "page");
+    assert.equal(pages.length, 1, "the take's own tab is closed");
 });
 
 test("compose makes a 1440 px email card and a 2560×1440 slide at 192 dpi", () => {

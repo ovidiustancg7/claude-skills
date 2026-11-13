@@ -19,7 +19,7 @@ Install once, then just ask Claude in plain words.
 
 | | Plugin | What it does |
 |---|---|---|
-| 📸 | **[showcase](plugins/showcase)** | Real screenshots of your running web app, filled with believable demo data, delivered as raw screens, email cards or 16:9 slides. |
+| 📸 | **[showcase](plugins/showcase)** | Real screenshots of your running web app, filled with believable demo data, delivered as raw screens, email cards, 16:9 slides or a short video clip. |
 
 ## Install
 
@@ -45,6 +45,8 @@ Ask for pictures the way you'd ask a colleague:
 > *"Three email cards about this week's changes, for the team."*
 >
 > *"Redo last month's deck for another brand."*
+>
+> *"A 30-second video of a promoter filling in the shelf audit on the phone."*
 
 The first time in a project, Claude sets it up with you: how the app starts, a demo-data
 kit with an invented brand, and the screens to shoot. All of it lives in a `.showcase/`
@@ -57,10 +59,12 @@ flowchart LR
     C --> D["Raw screens"]
     D --> E["Email cards<br/>720 px"]
     D --> F["Slides<br/>16:9"]
+    C --> G["Video take<br/>frame by frame"]
+    G --> H["OpenScreen<br/>frame, zooms,<br/>captions, MP4"]
 ```
 
 **Honest by design.** Every picture is a real render of the real app. Nothing is drawn,
-mocked up or retouched; composing only crops and arranges real screenshots.
+mocked up or retouched; composing only crops and arranges real screenshots, and a video is the real app filmed frame by frame.
 
 **Safe by design.** Demo data only ever goes into a local database. The tools only drive a
 Chrome they started themselves, and never send mail or touch your everyday browser.
