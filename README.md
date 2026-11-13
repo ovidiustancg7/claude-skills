@@ -31,7 +31,15 @@ In Claude Code (terminal or desktop):
 ```
 
 Copy the URL from the green **Code** button above. That's it: the skill is now available in
-every project you open. Updates arrive with `/plugin marketplace update ovidiu-skills`.
+every project you open.
+
+To update, run both in a terminal, then restart Claude Code (the first only refreshes the
+list of versions; the second updates your installed copy):
+
+```bash
+claude plugin marketplace update ovidiu-skills
+claude plugin update showcase@ovidiu-skills
+```
 
 > You can also just give Claude the repo URL and say *"install the showcase plugin from
 > this marketplace"*. It runs the same two commands.

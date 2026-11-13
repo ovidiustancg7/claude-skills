@@ -62,8 +62,9 @@ Chrome may need to run outside the Bash sandbox (it exits 21 silently inside it)
 1. Tests green, both validations pass.
 2. Bump `version` in the plugin's `plugin.json` (semver: a new step or option = minor, a
    fix = patch). Installs only update when the version changes.
-3. Commit and push to `main`. Users run `/plugin marketplace update ovidiu-skills` (or wait
-   for the background update).
+3. Commit and push to `main`. Users run `claude plugin marketplace update ovidiu-skills`,
+   then `claude plugin update <plugin>@ovidiu-skills`, then restart Claude Code. The first
+   alone only refreshes the marketplace: the installed copy stays on the old version.
 4. To try a change before pushing: `/plugin marketplace add <path to this folder>` in a
    test session, or run the tools directly from this folder against a project.
 
